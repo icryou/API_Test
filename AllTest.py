@@ -13,13 +13,15 @@ import os
 
 def send_mail(file_new):
     sender = 'XXX@163.com'
-    receiver = 'XXX@XXX.com'
+    receiver = 'XXX@fenbi.com'
     smtpserver = 'smtp.163.com'
     username = 'XXX@163.com'
     password = '******'
     #定义邮件
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = '%s 自动化测试报告 ' %time.strftime('%Y-%m-%d %H_%M')
+    msg['Subject'] = '%s 猿题库API自动化测试报告 ' %time.strftime('%Y-%m-%d %H_%M')
+    msg['From'] = 'XXX@163.com'
+    msg['To'] = 'XXX@fenbi.com'
     #定义正文
     f=open(file_new,'rb')
     mail_body=f.read()

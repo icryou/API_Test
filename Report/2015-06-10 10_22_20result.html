@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>API自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>API自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2015-06-10 10:22:20</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.274363</p>
+<p class='attribute'><strong>Status:</strong> Pass 2 Failure 1</p>
+
+<p class='description'>用例执行情况:</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>Test_categories_list.Test_categories_list: 专项列表页</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_check_status_code_and_json: 检查专项列表返回的status_code和json检验</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>Test_Modify_nickname.Test_Modify_nickname: 修改昵称</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_check_nickname: 验证修改后的nickname返回是否正确</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='failClass'>
+    <td>Test_Submit_exercise.Test_Submit_exercise: 提交试卷练习</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_check_status_code_and_json: 检查提交试卷后返回的status_code和json校验</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        fail</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: Traceback (most recent call last):
+  File "/Users/zengyue/PycharmProjects/API_Test/Test_Case/Test_Submit_exercise.py", line 25, in test_check_status_code_and_json
+    self.assertIn("2015å¹´æ®éé«ç­å­¦æ ¡æçå¨å½ç»ä¸èè¯ï¼å¹¿ä¸å·ï¼ï¼æ",resp.content)
+AssertionError: '2015\xe5\xb9\xb4\xe6\x99\xae\xe9\x80\x9a\xe9\xab\x98\xe7\xad\x89\xe5\xad\xa6\xe6\xa0\xa1\xe6\x8b\x9b\xe7\x94\x9f\xe5\x85\xa8\xe5\x9b\xbd\xe7\xbb\x9f\xe4\xb8\x80\xe8\x80\x83\xe8\xaf\x95\xef\xbc\x88\xe5\xb9\xbf\xe4\xb8\x9c\xe5\x8d\xb7\xef\xbc\x89\xef\xbc\x9a\xe6\x96\x87' not found in '{"paperAverageScore":20.381645102902603,"paperScoreRank":0.6904873634108735,"exerciseId":229454795,"name":"2015\xe5\xb9\xb4\xe6\x99\xae\xe9\x80\x9a\xe9\xab\x98\xe7\xad\x89\xe5\xad\xa6\xe6\xa0\xa1\xe6\x8b\x9b\xe7\x94\x9f\xe5\x85\xa8\xe5\x9b\xbd\xe7\xbb\x9f\xe4\xb8\x80\xe8\x80\x83\xe8\xaf\x95\xef\xbc\x88\xe5\xb9\xbf\xe4\xb8\x9c\xe5\x8d\xb7\xef\xbc\x89\xef\xbc\x9a\xe8\xaf\xad\xe6\x96\x87","userId":421,"type":1,"fullMark":150,"answerableMark":38,"score":3.0,"qualifiedScore":3.0,"questionCount":14,"answerCount":2,"correctCount":1,"elapsedTime":9,"presetTime":9000,"createdTime":1433902939636,"chapters":[{"keypointId":0,"questionCount":4,"score":3,"presetScore":12.0,"presetTime":720,"elapsedTime":9,"correctCount":1,"answerCount":3,"name":"\xe5\x9f\xba\xe7\xa1\x80\xe7\x9f\xa5\xe8\xaf\x86","desc":"\xe8\xaf\xb7\xe6\xa0\xb9\xe6\x8d\xae\xe9\xa2\x98\xe5\xb9\xb2\xe8\xa6\x81\xe6\xb1\x82\xe4\xbd\x9c\xe7\xad\x94\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":6,"score":0,"presetScore":22.0,"presetTime":1320,"elapsedTime":0,"correctCount":0,"answerCount":0,"name":"\xe6\x96\x87\xe8\xa8\x80\xe6\x96\x87\xe9\x98\x85\xe8\xaf\xbb","desc":"\xe9\x98\x85\xe8\xaf\xbb\xe4\xb8\x8b\xe9\x9d\xa2\xe7\x9a\x84\xe6\x96\x87\xe5\xad\x97\xef\xbc\x8c\xe5\xae\x8c\xe6\x88\x90\xe4\xb8\x8b\xe5\x88\x97\xe5\x90\x84\xe5\xb0\x8f\xe9\xa2\x98\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":2,"score":-1,"presetScore":7.0,"presetTime":420,"elapsedTime":-1,"correctCount":0,"answerCount":0,"name":"\xe5\x8f\xa4\xe4\xbb\xa3\xe8\xaf\x97\xe6\xad\x8c\xe9\x98\x85\xe8\xaf\xbb","desc":"\xe9\x98\x85\xe8\xaf\xbb\xe4\xb8\x8b\xe9\x9d\xa2\xe7\x9a\x84\xe6\x96\x87\xe5\xad\x97\xef\xbc\x8c\xe5\xae\x8c\xe6\x88\x90\xe4\xb8\x8b\xe5\x88\x97\xe5\x90\x84\xe5\xb0\x8f\xe9\xa2\x98\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":4,"score":0,"presetScore":6.0,"presetTime":360,"elapsedTime":0,"correctCount":0,"answerCount":0,"name":"\xe5\x90\x8d\xe7\xaf\x87\xe5\x90\x8d\xe5\x8f\xa5\xe9\xbb\x98\xe5\x86\x99","desc":"\xe8\xa1\xa5\xe5\x86\x99\xe5\x87\xba\xe4\xb8\x8b\xe5\x88\x97\xe5\x90\x8d\xe5\x8f\xa5\xe5\x90\x8d\xe7\xaf\x87\xe4\xb8\xad\xe7\x9a\x84\xe7\xa9\xba\xe7\xbc\xba\xe9\x83\xa8\xe5\x88\x86\xef\xbc\x88\xe4\xbb\x8e\xe4\xb8\x8b\xe5\x88\x97\xe5\xb0\x8f\xe9\xa2\x98\xe4\xb8\xad\xe9\x80\x89\xe6\x8b\xa93\xe5\xb0\x8f\xe9\xa2\x98\xe4\xbd\x9c\xe7\xad\x94\xef\xbc\x89\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":4,"score":0,"presetScore":16.0,"presetTime":960,"elapsedTime":0,"correctCount":0,"answerCount":0,"name":"\xe8\xae\xba\xe8\xbf\xb0\xe7\xb1\xbb\xe6\x96\x87\xe6\x9c\xac\xe9\x98\x85\xe8\xaf\xbb","desc":"\xe9\x98\x85\xe8\xaf\xbb\xe4\xb8\x8b\xe9\x9d\xa2\xe7\x9a\x84\xe6\x96\x87\xe5\xad\x97\xef\xbc\x8c\xe5\xae\x8c\xe6\x88\x90\xe4\xb8\x8b\xe5\x88\x97\xe5\x90\x84\xe5\xb0\x8f\xe9\xa2\x98\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":6,"score":-1,"presetScore":15.0,"presetTime":900,"elapsedTime":-1,"correctCount":0,"answerCount":0,"name":"\xe7\x8e\xb0\xe4\xbb\xa3\xe6\x96\x87\xe9\x98\x85\xe8\xaf\xbb","desc":"\xe8\xaf\xb7\xe8\x80\x83\xe7\x94\x9f\xe5\x9c\xa8\xe6\x96\x87\xe5\xad\xa6\xe7\xb1\xbb\xe6\x96\x87\xe6\x9c\xac\xe9\x98\x85\xe8\xaf\xbb\xe3\x80\x81\xe5\xae\x9e\xe7\x94\xa8\xe7\xb1\xbb\xe6\x96\x87\xe6\x9c\xac\xe9\x98\x85\xe8\xaf\xbb\xe4\xb8\xa4\xe5\xa4\xa7\xe9\xa2\x98\xe4\xb8\xad\xe9\x80\x89\xe5\xae\x9a\xe4\xb8\x80\xe9\xa2\x98\xe4\xbd\x9c\xe7\xad\x94\xe3\x80\x82\xe5\x8f\xaa\xe8\x83\xbd\xe5\x81\x9a\xe6\x89\x80\xe9\x80\x89\xe5\xae\x9a\xe9\xa2\x98\xe7\x9b\xae\xe5\x86\x85\xe7\x9a\x84\xe5\xb0\x8f\xe9\xa2\x98\xef\xbc\x8c\xe4\xb8\x8d\xe5\xbe\x97\xe9\x80\x89\xe5\x81\x9a\xe5\x8f\xa6\xe4\xb8\x80\xe9\xa2\x98\xe7\x9b\xae\xe5\x86\x85\xe7\x9a\x84\xe5\xb0\x8f\xe9\xa2\x98\xe3\x80\x82\xe5\xa6\x82\xe6\x9e\x9c\xe5\xa4\x9a\xe5\x81\x9a\xef\xbc\x8c\xe5\x88\x99\xe6\x8c\x89\xe6\x89\x80\xe5\x81\x9a\xe7\x9a\x84\xe7\xac\xac\xe4\xb8\x80\xe4\xb8\xaa\xe9\xa2\x98\xe7\x9b\xae\xe8\xae\xa1\xe5\x88\x86\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":2,"score":-1,"presetScore":12.0,"presetTime":720,"elapsedTime":-1,"correctCount":0,"answerCount":0,"name":"\xe8\xaf\xad\xe8\xa8\x80\xe6\x96\x87\xe5\xad\x97\xe8\xbf\x90\xe7\x94\xa8","desc":"\xe8\xaf\xb7\xe6\xa0\xb9\xe6\x8d\xae\xe9\xa2\x98\xe5\xb9\xb2\xe8\xa6\x81\xe6\xb1\x82\xe4\xbd\x9c\xe7\xad\x94\xe3\x80\x82\\n"},{"keypointId":0,"questionCount":1,"score":-1,"presetScore":60.0,"presetTime":3600,"elapsedTime":-1,"correctCount":0,"answerCount":0,"name":"\xe5\x86\x99\xe4\xbd\x9c","desc":"\xe8\xaf\xb7\xe6\xa0\xb9\xe6\x8d\xae\xe9\xa2\x98\xe5\xb9\xb2\xe8\xa6\x81\xe6\xb1\x82\xe4\xbd\x9c\xe7\xad\x94\xe3\x80\x82\\n"}],"keypoints":[{"id":4897,"name":"\xe5\x9f\xba\xe7\xa1\x80\xe7\x9f\xa5\xe8\xaf\x86","correctCount":1,"questionCount":4,"score":3.0,"totalScore":3.0,"oldCapacity":1,"capacity":1,"time":9,"optional":false,"type":0,"keypoints":[{"id":77287,"name":"\xe5\xad\x97\xe9\x9f\xb3","correctCount":1,"questionCount":1,"score":3.0,"totalScore":3.0,"oldCapacity":4,"capacity":4,"time":5,"optional":false,"type":0,"keypoints":[],"giantOnly":false},{"id":4911,"name":"\xe6\xad\xa3\xe7\xa1\xae\xe4\xbd\xbf\xe7\x94\xa8\xe8\xaf\x8d\xe8\xaf\xad\xef\xbc\x88\xe5\x8c\x85\xe6\x8b\xac\xe7\x86\x9f\xe8\xaf\xad\xef\xbc\x89","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":1,"optional":false,"type":0,"keypoints":[{"id":125655,"name":"\xe6\x88\x90\xe8\xaf\xad\xef\xbc\x8f\xe7\x86\x9f\xe8\xaf\xad\xe4\xbd\xbf\xe7\x94\xa8\xef\xbc\x88\xe5\x88\xa4\xe6\x96\xad\xe6\xad\xa3\xe8\xaf\xaf\xef\xbc\x89","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":1,"optional":false,"type":0,"keypoints":null,"giantOnly":false}],"giantOnly":false},{"id":4909,"name":"\xe8\xaf\xad\xe8\xa8\x80\xe8\xbf\x90\xe7\x94\xa8","correctCount":0,"questionCount":2,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":3,"optional":false,"type":0,"keypoints":[{"id":123295,"name":"\xe7\x97\x85\xe5\x8f\xa5\xe4\xbf\xae\xe6\x94\xb9","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":3,"optional":false,"type":0,"keypoints":null,"giantOnly":false},{"id":123305,"name":"\xe6\x8e\x92\xe5\xba\x8f","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":null,"giantOnly":false}],"giantOnly":false}],"giantOnly":false},{"id":4899,"name":"\xe7\x8e\xb0\xe4\xbb\xa3\xe6\x96\x87\xe9\x98\x85\xe8\xaf\xbb","correctCount":0,"questionCount":2,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":[{"id":4921,"name":"\xe8\xae\xba\xe8\xbf\xb0\xe7\xb1\xbb\xe9\x98\x85\xe8\xaf\xbb","correctCount":0,"questionCount":2,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":[],"giantOnly":false}],"giantOnly":false},{"id":4901,"name":"\xe5\x8f\xa4\xe4\xbb\xa3\xe8\xaf\x97\xe6\x96\x87\xe9\x98\x85\xe8\xaf\xbb","correctCount":0,"questionCount":8,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":[{"id":4929,"name":"\xe8\xaf\x97\xe6\x96\x87\xe9\xbb\x98\xe5\x86\x99","correctCount":0,"questionCount":4,"score":0.0,"totalScore":0.0,"oldCapacity":0,"capacity":0,"time":0,"optional":false,"type":0,"keypoints":[],"giantOnly":false},{"id":4925,"name":"\xe6\x96\x87\xe8\xa8\x80\xe6\x96\x87\xe9\x98\x85\xe8\xaf\xbb","correctCount":0,"questionCount":4,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":[{"id":123307,"name":"\xe5\xae\x9e\xe8\xaf\x8d\xe8\xa7\xa3\xe9\x87\x8a","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":null,"giantOnly":false},{"id":123311,"name":"\xe8\x99\x9a\xe8\xaf\x8d\xe5\xa1\xab\xe7\xa9\xba\xef\xbc\x8f\xe9\x80\x89\xe5\xad\x97\xe5\xa1\xab\xe7\xa9\xba","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":0,"capacity":0,"time":0,"optional":false,"type":0,"keypoints":null,"giantOnly":false},{"id":123313,"name":"\xe6\x96\x87\xe7\xab\xa0\xe7\x90\x86\xe8\xa7\xa3\xe4\xb8\x8e\xe5\x88\x86\xe6\x9e\x90","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":null,"giantOnly":false},{"id":123317,"name":"\xe6\x96\xad\xe5\x8f\xa5","correctCount":0,"questionCount":1,"score":0.0,"totalScore":0.0,"oldCapacity":1,"capacity":1,"time":0,"optional":false,"type":0,"keypoints":null,"giantOnly":false}],"giantOnly":false}],"giantOnly":false}],"answers":[{"questionId":1553709,"correct":true,"status":1},{"questionId":1553711,"correct":false,"status":-1},{"questionId":1553719,"correct":false,"status":-1},{"questionId":1553727,"correct":false,"status":-1},{"questionId":1553737,"correct":false,"status":-1},{"questionId":1553741,"correct":false,"status":-1},{"questionId":1553743,"correct":false,"status":-1},{"questionId":1553745,"correct":false,"status":-1},{"questionId":1553763,"correct":false,"status":-1},{"questionId":1553771,"correct":false,"status":-1},{"questionId":1553787,"correct":false,"status":-1},{"questionId":1553793,"correct":false,"status":-1},{"questionId":1553803,"correct":false,"status":-1},{"questionId":1553807,"correct":false,"status":-1},{"questionId":1553811,"correct":false,"status":-1},{"questionId":1553861,"correct":false,"status":-1},{"questionId":1553875,"correct":false,"status":-1},{"questionId":1553889,"correct":false,"status":-1},{"questionId":1553897,"correct":false,"status":-1},{"questionId":1553901,"correct":false,"status":-1},{"questionId":1553987,"correct":false,"status":-1},{"questionId":1553991,"correct":false,"status":-1},{"questionId":1553997,"correct":false,"status":-1},{"questionId":1554009,"correct":false,"status":-1},{"questionId":1554017,"correct":false,"status":-1},{"questionId":1554023,"correct":false,"status":-1},{"questionId":1554031,"correct":false,"status":-1},{"questionId":1554035,"correct":false,"status":-1},{"questionId":1554045,"correct":false,"status":-1}],"device":"mobile","trendId":"4b5448484c2b36496a54574c56735062456b3734433769436f70654e505477647848426f77504268557a303d","shareId":"62783930734c38314b49763162615166796b476d68496862397766685631655a526745713267444f6b57773d","trends":null,"lotteryCard":null,"difficulty":4.379310344827586,"difficultyInterval":"3.6,6.2","client":"ANDROID","correctRate":7}'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
